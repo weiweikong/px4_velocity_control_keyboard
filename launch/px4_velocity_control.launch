@@ -1,0 +1,7 @@
+<launch>
+  <!-- a basic listener node -->
+  <node name="keyboard" pkg="keyboard" type="keyboard"/>
+  <!-- pass args to the listener node -->
+  <node name="px4_velocity_control_node" pkg="px4_velocity_control_node" type="px4_velocity_control_node" output="screen"/> 
+  
+</launch>
