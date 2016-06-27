@@ -101,6 +101,15 @@ void sendCommand(const keyboard::Key &key)
     }
     case 'a':
     {
+      ROS_WARN_STREAM("z is zero");
+      vs.twist.linear.z = 0.0;
+      isSendNextPose = false;      
+      isSendNextVelocity = true; 
+      updateControlCommandStats();
+      break;
+    }
+    case 'z':
+    {
       ROS_WARN_STREAM("down");
       vs.twist.linear.z -= 0.1;
       isSendNextPose = false;      
@@ -136,6 +145,19 @@ void sendCommand(const keyboard::Key &key)
       break;
     }
     case 'k':
+    {
+      ROS_WARN_STREAM("set XY to zero");
+      vs.twist.linear.x = 0.0;
+      vs.twist.linear.y = 0.0;
+      vs.twist.angular.x = 0.0;
+      vs.twist.angular.y = 0.0;
+      vs.twist.angular.z = 0.0;
+      isSendNextPose = false;      
+      isSendNextVelocity = true; 
+      updateControlCommandStats();
+      break;
+    }
+    case ',':
     {
       ROS_WARN_STREAM("backward");
       vs.twist.linear.x -= 0.1;
